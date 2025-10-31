@@ -3,23 +3,30 @@
 [![Angular](https://img.shields.io/badge/Angular-16-red.svg)](https://angular.io/)
 [![Node.js](https://img.shields.io/badge/Node.js-Express-green.svg)](https://nodejs.org/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Database-brightgreen.svg)](https://www.mongodb.com/)
-[![License](https://img.shields.io/badge/License-ISC-blue.svg)](LICENSE)
 
-A full-stack web application for searching and exploring artist information using the Artsy API. Users can search for artists, view detailed artist profiles, browse artworks, and save their favorite artists.
+## About
+
+A full-stack web application for searching and exploring artist information using the Artsy API. This application demonstrates my skills in building modern web applications with Angular frontend, Node.js/Express backend, and MongoDB database integration.
+
+**Key Highlights:**
+
+- RESTful API design with Express.js
+- JWT-based authentication system
+- Integration with external API (Artsy)
+- Responsive UI with Angular and Bootstrap
+- User favorites management system
 
 ## 📋 Table of Contents
 
+- [About](#about)
 - [Features](#-features)
 - [Tech Stack](#-tech-stack)
 - [Project Structure](#-project-structure)
-- [Prerequisites](#-prerequisites)
-- [Installation](#-installation)
+- [Getting Started](#getting-started)
 - [Running the Application](#-running-the-application)
+- [How to Use](#how-to-use)
 - [API Endpoints](#-api-endpoints)
 - [Deployment](#-deployment)
-- [Usage](#-usage)
-- [Contributing](#-contributing)
-- [License](#-license)
 
 ## ✨ Features
 
@@ -66,20 +73,41 @@ Artist-Info-Searching-App/
     └── dist/          # Production build output
 ```
 
-## 🔧 Prerequisites
+## Getting Started
+
+### Prerequisites
 
 Before running this application, make sure you have the following installed:
 
 - **Node.js** (v14 or higher) - [Download](https://nodejs.org/)
-- **npm** (comes with Node.js) - Node Package Manager
-- **MongoDB** - [Download](https://www.mongodb.com/try/download/community) (local) or use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) (cloud)
-- **Artsy API Credentials** - Client ID and Client Secret (see setup below)
+- **npm** (comes with Node.js)
+- **MongoDB** - [Download](https://www.mongodb.com/try/download/community) or use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+- **Artsy API Credentials** - Register at [developers.artsy.net](https://developers.artsy.net/) to get Client ID and Secret
 
-## ⚙️ Environment Variables Setup
+### Installation
 
-### Backend Configuration
+1. Clone the repository:
 
-Create a `.env` file in the `backend/` directory with the following variables:
+```bash
+git clone https://github.com/Yumejichi/Artist-Info-Searching-App.git
+cd Artist-Info-Searching-App
+```
+
+2. Install dependencies:
+
+```bash
+# Backend
+cd backend
+npm install
+
+# Frontend
+cd ../frontend
+npm install
+```
+
+3. Set up environment variables:
+
+Create a `.env` file in the `backend/` directory:
 
 ```env
 PORT=3000
@@ -89,68 +117,9 @@ ARTSY_TOKEN_CLIENTSECRET=your_artsy_client_secret
 JWT_SECRET=your_jwt_secret_key
 ```
 
-### Getting Artsy API Credentials
-
-1. Visit https://developers.artsy.net/
-2. Create an account and register your application
-3. Obtain your Client ID and Client Secret
-4. Add them to your `.env` file
-
-## 📦 Installation
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/Yumejichi/Artist-Info-Searching-App.git
-cd Artist-Info-Searching-App
-```
-
-2. Install backend dependencies:
-
-```bash
-cd backend
-npm install
-```
-
-3. Install frontend dependencies:
-
-```bash
-cd ../frontend
-npm install
-```
-
 ## 🚀 Running the Application
 
-There are two ways to run this application:
-
-### Option 1: Production Mode (Recommended for Deployment)
-
-This runs both frontend and backend together. The backend serves the built frontend files.
-
-1. Build the frontend:
-
-```bash
-cd frontend
-npm run build
-```
-
-2. Copy the built files to backend public directory:
-
-```bash
-# The build output should be copied to backend/public/
-# (This may already be done if deploying)
-```
-
-3. Start the backend server:
-
-```bash
-cd ../backend
-npm start
-```
-
-4. Open your browser and navigate to: `http://localhost:3000`
-
-### Option 2: Development Mode
+### Development Mode (Recommended for Testing)
 
 Run frontend and backend separately for development with hot-reload:
 
@@ -172,7 +141,29 @@ npm start
 
 Frontend will run on: `http://localhost:4200`
 
-3. Configure the frontend proxy (already configured in `proxy.conf.json`) to forward API requests to the backend.
+The frontend proxy is already configured in `proxy.conf.json` to forward API requests to the backend.
+
+### Production Mode
+
+To run in production mode (backend serves built frontend files):
+
+1. Build the frontend:
+
+```bash
+cd frontend
+npm run build
+```
+
+2. Copy build output to `backend/public/` (if not already there)
+
+3. Start the backend:
+
+```bash
+cd ../backend
+npm start
+```
+
+The application will be available at `http://localhost:3000`
 
 ## 📡 API Endpoints
 
@@ -223,33 +214,22 @@ gcloud app deploy
 
 The backend serves the built frontend files from the `public/` directory, so both frontend and backend are deployed together.
 
-## 💻 Usage
+## How to Use
 
-1. **Search for Artists**: Use the search bar on the home page to find artists
-2. **View Artist Details**: Click on any artist to see their profile, biography, and artworks
-3. **Register/Login**: Create an account or login to save favorite artists
-4. **Save Favorites**: While logged in, click the favorite button on artist pages
-5. **Manage Favorites**: Visit the Favorites page to view and remove saved artists
+Once the application is running:
 
-## 🤝 Contributing
+1. **Search for Artists**: Use the search bar on the home page to find artists by name
+2. **View Artist Details**: Click on any artist card to see their detailed profile, biography, and artwork gallery
+3. **Register/Login**: Create a new account or login to enable favorites functionality
+4. **Save Favorites**: While logged in, click the favorite button (❤️) on artist pages to save them
+5. **Manage Favorites**: Visit the Favorites page from the navigation menu to view and manage your saved artists
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+### User Flow
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the ISC License.
+```
+Home → Search Artists → View Artist Details → (Optional) Save to Favorites → Manage Favorites
+```
 
 ## 🙏 Acknowledgments
 
 - [Artsy API](https://developers.artsy.net/) for providing artist and artwork data
-- Angular and Express.js communities for excellent documentation and support
-
-## 📞 Support
-
-If you encounter any issues or have questions, please open an issue on the [GitHub repository](https://github.com/Yumejichi/Artist-Info-Searching-App).
