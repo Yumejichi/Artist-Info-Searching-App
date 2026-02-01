@@ -1,0 +1,44 @@
+
+input:-webkit-autofill {
+    box-shadow: 0 0 0 1000px white inset;
+}
+
+button {
+    border: none;
+}
+
+.artist-card {
+    background-color: #205375;
+    border: 1px solid #ccc;
+}
+.artist-card .card-title {
+    color: white;
+}
+
+.artist-card:hover{
+    cursor: pointer;
+    background-color: #004d8f;
+}
+
+.artist-selected{
+    cursor: pointer;
+    background-color: #004d8f;
+}
+
+
+.nav-link.active {
+    background-color: #004d8f;
+    color: white;
+}
+
+.nav-link {
+    color: #004d8f;
+}
+
+.viewCategoryButton:hover {
+    cursor: pointer;
+    background-color: #004d8f;
+    color: white
+}
+
+

@@ -1,0 +1,39 @@
+<div class="container mt-3">
+
+  <div class="row">
+    <div class="col-12 col-sm-11 col-md-9 mt-3 px-3 mx-auto"> 
+  <div class="text-center">
+    <div class="spinner-border" role="status" *ngIf="isLoadingFavorites" style="color: #205375;">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div class="alert alert-danger" role="alert" *ngIf="noUserFavorites && keys(userFavorites).length === 0  && !isLoadingFavorites">
+    No favorite artists.
+  </div> 
+
+  <div class="row row-cols-1 row-cols-md-3 g-4 mb-3 pb-5" *ngIf="!noUserFavorites && keys(userFavorites).length && !isLoadingFavorites">
+    <div class="col-md-4" *ngFor="let favorite of sortedFavoriteIds">
+        <div class="card bg-dark text-white ms-0 mb-3" style="height: 200px; cursor: pointer;" *ngIf="userFavoritesSet.has(favorite)" (click)="onClickCard(favorite)">
+          <img class="card-img h-100" style="filter: blur(8px) brightness(0.5);" [src]="userFavorites[favorite].artistImageUrl" alt="userFavorites[favorite].artistName ">
+          <div class="card-img-overlay d-flex flex-column justify-content-between">
+              <h3 class="card-title">{{ userFavorites[favorite].artistName }}</h3>
+              <div class="card-text mb-0">{{userFavorites[favorite].artistBirthday}} - {{userFavorites[favorite].artistDeathday}}</div>
+                <!-- <span *ngIf="artistInfoData.artistBirthday || artistInfoData.artistDeathday">-</span>  -->
+
+              <p class="card-text mt-0">{{userFavorites[favorite].artistNationality}}</p>
+              <div class="d-flex align-items-center justify-content-between mb-0 pb-0">
+                <!-- <p>{{ userFavorites[favorite].favoritedTime }}</p> -->
+
+              <p class="card-text mb-0 pb-0">{{userFavorites[favorite].favoritedTime | timeago}}</p>
+              <div class="ms-auto me-0">
+                <div class="btn-link btn-default btn-primary-outline" (click)="onremoveFavorite(favorite)" style="cursor: pointer;">Remove</div>
+              </div>
+            </div>
+            </div>
+      </div>
+    </div>
+  </div> 
+</div>
+</div>
+</div>

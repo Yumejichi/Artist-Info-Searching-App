@@ -1,0 +1,37 @@
+<div class="container px-3 mt-5">
+<div class="row d-flex align-items-center justify-content-center mx-auto">
+    <div class="m-3 col-md-4 border py-3 px-3">    
+        <h2>Login</h2>
+        <form (ngSubmit)="onLogin(loginForm)"  #loginForm="ngForm">
+            <div class="my-3">
+                <label for="email" class="form-label mb-0">Email address</label>
+                <input type="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$" 
+                [class.is-invalid]="(emailAddress.invalid && (emailAddress.dirty || emailAddress.touched))"
+                class="form-control" id="email" name="emailAddress" placeholder="Enter email" required #emailAddress="ngModel" ngModel>   
+                <div class="invalid-feedback" *ngIf="emailAddress.errors?.['required'] && (emailAddress.dirty || emailAddress.touched)">
+                    Email is required.
+                </div>
+                <div class="invalid-feedback" *ngIf="emailAddress.errors?.['pattern']">
+                    Email must be valid.
+                </div>
+
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label mb-0">Password</label>
+                <input type="password" [class.is-invalid]="(password.invalid && (password.dirty || password.touched))"
+                class="form-control" id="password" name="password" placeholder="Password" required #password="ngModel" ngModel>
+                <div class="invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">
+                    Password is required.
+                </div>
+                <div class="text-danger"  *ngIf="backEndError">
+                        {{ backEndError }}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100" style="background-color: #004d8f" [disabled]="loginForm.invalid">Log in</button>
+        </form>
+    </div>
+    <div class="text-center">
+        <small>Don’t have an account yet? <a routerLink="/register">Register</a></small>
+    </div>
+</div>
+</div>

@@ -1,0 +1,12 @@
+<app-header></app-header>
+<div class="position-fixed alert end-0 d-flex flex-column align-items-end"role="alert" style="z-index: 1070;">
+    <div *ngFor="let notification of notificationService['notifications']">
+        <div class="alert alert-{{notification.type}} alert-dismissible text-start small mb-2 px-2" style="width: 200px; font-size: 0.75rem;">
+            {{notification.message}}
+            <button type="button" class="btn-close" (click)="notificationService.removeNotification(notification.notificationId)" data-bs-dismiss="alert"></button>
+        </div>
+
+    </div>
+</div>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
