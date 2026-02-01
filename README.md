@@ -8,6 +8,21 @@
 
 A full-stack web application for searching and exploring artist information using the Artsy API. This application demonstrates my skills in building modern web applications with Angular frontend, Node.js/Express backend, and MongoDB database integration.
 
+**🌐 Live Demo:** [https://artist-info-searching-app.wl.r.appspot.com](https://artist-info-searching-app.wl.r.appspot.com)
+
+<!-- 
+To add a demo video:
+1. Record a GIF/video of your app in action
+2. Save it in the repository (e.g., demo.gif or demo.mp4)
+3. Uncomment one of the options below:
+
+![App Demo](demo.gif)
+OR
+<video src="demo.mp4" controls width="800"></video>
+OR for YouTube:
+[![Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+-->
+
 **Key Highlights:**
 
 - RESTful API design with Express.js
@@ -15,6 +30,7 @@ A full-stack web application for searching and exploring artist information usin
 - Integration with external API (Artsy)
 - Responsive UI with Angular and Bootstrap
 - User favorites management system
+- Deployed on Google App Engine
 
 ## 📋 Table of Contents
 
@@ -194,25 +210,9 @@ The application will be available at `http://localhost:3000`
 
 ## 🚢 Deployment
 
-### Backend Deployment (Google App Engine)
+**Live Application:** [https://artist-info-searching-app.wl.r.appspot.com](https://artist-info-searching-app.wl.r.appspot.com)
 
-The backend is configured for Google App Engine deployment with `app.yaml`.
-
-1. Install Google Cloud SDK
-2. Configure your project:
-
-```bash
-gcloud config set project YOUR_PROJECT_ID
-```
-
-3. Deploy:
-
-```bash
-cd backend
-gcloud app deploy
-```
-
-The backend serves the built frontend files from the `public/` directory, so both frontend and backend are deployed together.
+The application is deployed on Google App Engine. The backend is configured with `app.yaml` and serves the built frontend files from the `public/` directory, so both frontend and backend are deployed together.
 
 ## How to Use
 
