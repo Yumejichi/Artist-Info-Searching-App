@@ -7,6 +7,7 @@
 ## About
 
 A full-stack web application for searching and exploring artist information using the Artsy API. This application demonstrates my skills in building modern web applications with Angular frontend, Node.js/Express backend, and MongoDB database integration.
+- **[Web Link](https://artist-info-searching-app.wl.r.appspot.com/search)** - Deployed on Google Cloud Platform
 
 **🌐 Live Demo:** [https://artist-info-searching-app.wl.r.appspot.com](https://artist-info-searching-app.wl.r.appspot.com)
 
